@@ -15,7 +15,8 @@ export const serviceLinks: NavLink[] = [
   { label: "Digital Marketing", href: "/services#digital-marketing" },
   { label: "Content Creation", href: "/services#content-creation" },
   { label: "Software Development", href: "/services#software-development" },
-  { label: "Branding & Design", href: "/services#branding-design" },
+  { label: "Pricing", href: "/services#pricing" },
+  { label: "Industries", href: "/services#industries" },
 ];
 
 export const legalLinks: NavLink[] = [
