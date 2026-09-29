@@ -59,3 +59,48 @@ Deviations from `docs/brand-spec.md`, and the judgement calls behind them.
   at exactly 760px. The narrower gutter only applies in that band; from 1024px
   it returns to the spec's 40px. This is the tightest spot in the layout and I
   want it confirmed visually in the responsive pass.
+
+## Phase 3: Home
+
+The spec fixes structure, headings, card titles, stat numbers, venture names
+and the five sector names for Home, and says nothing about the prose around
+them. Everything below is copy I wrote, and it is the only copy in the repo
+that is not derived from the spec.
+
+- **Hero lede**, the two "Who We Are" paragraphs, and the body text for the
+  four feature-strip cards (Growth-Driven, Creative-First, Tech-Powered,
+  Client-Centric — titles are from the spec).
+- **Service teaser blurbs** for Digital Marketing, Content Creation, Software
+  Development and Branding & Design.
+- **Descriptions and category labels for the three ventures**, plus the tag
+  lists used on the Products page.
+- **Six sector blurbs** (sector names are from the spec).
+- **Four process step bodies** for Discover, Design, Develop, Deliver.
+- **Three testimonials**: quotes, names and job titles. The companies are
+  fictional Nepali businesses, which is the only way to satisfy "3 quote cards
+  with name, title/company" without inventing real endorsements.
+- **Three blog posts**: titles, excerpts, categories and read times. Dates are
+  set in 2026 to sit after the 2025 founding date in the spec.
+- **Section eyebrows and supporting headings** such as "Our track record",
+  "How we work", "Client stories" and "Experience across six industries",
+  because the spec describes these blocks without giving them headings.
+
+Structural choices worth recording:
+
+- **Shared page data lives in `lib/`** (`products`, `sectors`, `testimonials`,
+  `posts`) so the Products and Services pages reuse the same ventures and
+  sectors instead of restating them.
+- **The ventures carry tags, not invented metrics.** The Products page asks for
+  "stats or tags"; inventing per-product performance numbers next to the
+  spec's real figures (250+ projects, 98% retention) would have made the site
+  look more precise than it can be, so the panel shows capability tags.
+- **`Card` gained one optional `badge` prop** to hold the process step numbers
+  (`01`–`04`) beside the icon, rather than forking a second card component.
+- **Blog placeholders are CSS gradients** built from palette tokens with a fixed
+  16:10 aspect ratio, so there is no image request and no layout shift. The
+  "Read more" link is `href="#"` since there are no post pages.
+- **Both stat bars are the same component** (`StatBar`, `tone="navy"` for the
+  dark banner), so the hero and the impact banner cannot drift apart.
+- **`playwright` is a devDependency** used only by `scripts/audit.mjs`, which
+  sweeps all five routes at 1440/1024/760/390px, screenshots each one, and
+  records console errors, page errors, failed requests and horizontal overflow.
