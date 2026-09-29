@@ -38,11 +38,11 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-white/85 backdrop-blur-md">
-      <div className="mx-auto flex h-16 w-full max-w-content items-center justify-between gap-4 px-gutter-mobile nav:h-20 nav:px-gutter">
-        <Logo tagline="" />
+      <div className="mx-auto flex h-16 w-full max-w-content items-center justify-between gap-4 px-gutter-mobile nav:h-20 nav:px-6 lg:px-gutter">
+        <Logo />
 
         <nav aria-label="Primary" className="hidden nav:flex nav:flex-1">
-          <ul className="mx-auto flex items-center justify-center gap-0.5 lg:gap-2">
+          <ul className="mx-auto flex items-center justify-center gap-0.5 lg:gap-1.5">
             {navLinks.map((link) => {
               const active = isActive(pathname, link.href);
 
@@ -52,7 +52,7 @@ export function Header() {
                     href={link.href}
                     aria-current={active ? "page" : undefined}
                     className={cn(
-                      "inline-block rounded-button px-2.5 py-2 text-[13px] font-medium transition-colors duration-200 lg:px-3.5 lg:text-sm",
+                      "inline-block whitespace-nowrap rounded-button px-2 py-2 text-[13px] font-medium transition-colors duration-200 lg:px-3.5 lg:text-sm",
                       active
                         ? "text-primary"
                         : "text-muted hover:bg-chip-teal hover:text-ink",
