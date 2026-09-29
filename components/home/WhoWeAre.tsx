@@ -1,6 +1,8 @@
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { chipTones } from "@/components/IconChip";
+import { Reveal } from "@/components/Reveal";
+import { stagger } from "@/lib/reveal";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 
@@ -77,7 +79,12 @@ export function WhoWeAre() {
 
         <ul className="grid gap-grid sm:grid-cols-2">
           {serviceTeasers.map((service, index) => (
-            <li key={service.title} className="h-full">
+            <Reveal
+              as="li"
+              key={service.title}
+              delay={stagger(index)}
+              className="h-full"
+            >
               <Card
                 title={service.title}
                 body={service.body}
@@ -85,7 +92,7 @@ export function WhoWeAre() {
                 iconTone={chipTones[index % chipTones.length]}
                 className="h-full"
               />
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

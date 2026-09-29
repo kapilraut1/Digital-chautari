@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/Reveal";
+import { stagger } from "@/lib/reveal";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { contactChannels } from "@/lib/contact";
@@ -12,9 +14,11 @@ export function ContactChannels() {
       />
 
       <ul className="mt-10 grid gap-grid sm:grid-cols-2 lg:grid-cols-4">
-        {contactChannels.map((channel) => (
-          <li
+        {contactChannels.map((channel, index) => (
+          <Reveal
+            as="li"
             key={channel.title}
+            delay={stagger(index)}
             className="flex flex-col rounded-card border border-line bg-white p-card"
           >
             <span aria-hidden="true" className="text-2xl">
@@ -30,7 +34,7 @@ export function ContactChannels() {
                 {line}
               </p>
             ))}
-          </li>
+          </Reveal>
         ))}
       </ul>
     </Section>

@@ -6,6 +6,8 @@ import { ContactForm } from "@/components/contact/ContactForm";
 import { ContactSidebar } from "@/components/contact/ContactSidebar";
 import { DirectLines } from "@/components/contact/DirectLines";
 import { Hero } from "@/components/Hero";
+import { Reveal } from "@/components/Reveal";
+import { stagger } from "@/lib/reveal";
 import { Section } from "@/components/Section";
 
 export const metadata: Metadata = {
@@ -34,8 +36,12 @@ export default function ContactPage() {
 
       <Section id="contact-form">
         <div className="grid gap-section lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-section-tight">
-          <ContactForm />
-          <ContactSidebar />
+          <Reveal delay={stagger(0)}>
+            <ContactForm />
+          </Reveal>
+          <Reveal delay={stagger(1)}>
+            <ContactSidebar />
+          </Reveal>
         </div>
       </Section>
     </main>

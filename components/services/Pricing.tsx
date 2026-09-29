@@ -1,4 +1,6 @@
 import { PricingCard } from "@/components/PricingCard";
+import { Reveal } from "@/components/Reveal";
+import { stagger } from "@/lib/reveal";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { pricingTiers } from "@/lib/pricing";
@@ -14,17 +16,18 @@ export function Pricing() {
       />
 
       <div className="mt-10 grid items-start gap-grid nav:grid-cols-3">
-        {pricingTiers.map((tier) => (
-          <PricingCard
-            key={tier.id}
-            name={tier.name}
-            price={tier.price}
-            period={tier.period}
-            summary={tier.summary}
-            features={tier.features}
-            ctaLabel={tier.ctaLabel}
-            featured={tier.featured}
-          />
+        {pricingTiers.map((tier, index) => (
+          <Reveal key={tier.id} delay={stagger(index)} className="h-full">
+            <PricingCard
+              name={tier.name}
+              price={tier.price}
+              period={tier.period}
+              summary={tier.summary}
+              features={tier.features}
+              ctaLabel={tier.ctaLabel}
+              featured={tier.featured}
+            />
+          </Reveal>
         ))}
       </div>
 

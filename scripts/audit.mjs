@@ -87,6 +87,21 @@ for (const route of routes) {
     });
     await page.waitForTimeout(600);
 
+    await page.evaluate(async () => {
+      const viewport = window.innerHeight;
+      const total = document.documentElement.scrollHeight - viewport;
+      let position = 0;
+
+      while (position < total) {
+        position = Math.min(position + viewport * 0.8, total);
+        window.scrollTo(0, position);
+        await new Promise((resolve) => setTimeout(resolve, 120));
+      }
+
+      window.scrollTo(0, 0);
+      await new Promise((resolve) => setTimeout(resolve, 250));
+    });
+
     const metrics = await page.evaluate(measure);
     await page.screenshot({
       path: `${outputDir}/screenshots/${route.name}-${width}.png`,

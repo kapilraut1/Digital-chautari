@@ -1,5 +1,7 @@
 import { DarkBanner } from "@/components/DarkBanner";
 import { IconChip, chipTones } from "@/components/IconChip";
+import { Reveal } from "@/components/Reveal";
+import { stagger } from "@/lib/reveal";
 
 const reasons = [
   "Dedicated project manager",
@@ -15,8 +17,10 @@ export function WhyUs() {
     <DarkBanner eyebrow="Why work with us" title="Six reasons clients stay">
       <ul className="mt-10 grid gap-grid sm:grid-cols-2 lg:grid-cols-3">
         {reasons.map((reason, index) => (
-          <li
+          <Reveal
+            as="li"
             key={reason}
+            delay={stagger(index)}
             className="flex items-center gap-4 rounded-card border border-navyBorder bg-navyCard px-6 py-5"
           >
             <IconChip tone={chipTones[index % chipTones.length]} size="sm">
@@ -24,7 +28,7 @@ export function WhyUs() {
             </IconChip>
 
             <span className="text-sm font-medium text-white">{reason}</span>
-          </li>
+          </Reveal>
         ))}
       </ul>
     </DarkBanner>

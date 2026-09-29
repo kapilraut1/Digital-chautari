@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/Reveal";
+import { stagger } from "@/lib/reveal";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { TestimonialCard } from "@/components/TestimonialCard";
@@ -13,10 +15,15 @@ export function Testimonials() {
       />
 
       <ul className="mt-10 grid gap-grid nav:grid-cols-3">
-        {testimonials.map((testimonial) => (
-          <li key={testimonial.name} className="h-full">
+        {testimonials.map((testimonial, index) => (
+          <Reveal
+            as="li"
+            key={testimonial.name}
+            delay={stagger(index)}
+            className="h-full"
+          >
             <TestimonialCard {...testimonial} />
-          </li>
+          </Reveal>
         ))}
       </ul>
     </Section>

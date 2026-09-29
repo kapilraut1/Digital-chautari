@@ -1,4 +1,6 @@
 import { Card } from "@/components/Card";
+import { Reveal } from "@/components/Reveal";
+import { stagger } from "@/lib/reveal";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { departments } from "@/lib/contact";
@@ -14,8 +16,13 @@ export function DirectLines() {
       />
 
       <ul className="mt-10 grid gap-grid sm:grid-cols-2 lg:grid-cols-4">
-        {departments.map((department) => (
-          <li key={department.title} className="h-full">
+        {departments.map((department, index) => (
+          <Reveal
+            as="li"
+            key={department.title}
+            delay={stagger(index)}
+            className="h-full"
+          >
             <Card
               title={department.title}
               body={department.body}
@@ -29,7 +36,7 @@ export function DirectLines() {
                 {department.email}
               </a>
             </Card>
-          </li>
+          </Reveal>
         ))}
       </ul>
     </Section>

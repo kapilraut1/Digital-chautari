@@ -1,4 +1,6 @@
 import { IconChip, chipTones } from "@/components/IconChip";
+import { Reveal } from "@/components/Reveal";
+import { stagger } from "@/lib/reveal";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { sectors } from "@/lib/sectors";
@@ -14,9 +16,11 @@ export function Industries() {
 
       <ul className="mt-10 grid gap-grid sm:grid-cols-2 lg:grid-cols-3">
         {sectors.map((sector, index) => (
-          <li
+          <Reveal
+            as="li"
             key={sector.name}
-            className="flex items-center gap-4 rounded-card border border-line bg-white px-6 py-5 transition-[transform,box-shadow] duration-200 motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-card"
+            delay={stagger(index)}
+            className="flex items-center gap-4 rounded-card border border-line bg-white px-6 py-5 motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-card"
           >
             <IconChip tone={chipTones[index % chipTones.length]}>
               {sector.glyph}
@@ -25,7 +29,7 @@ export function Industries() {
             <span className="font-display text-base font-bold tracking-tight text-ink">
               {sector.shortName}
             </span>
-          </li>
+          </Reveal>
         ))}
       </ul>
     </Section>

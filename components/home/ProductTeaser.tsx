@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 import { Card } from "@/components/Card";
+import { Reveal } from "@/components/Reveal";
+import { stagger } from "@/lib/reveal";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ventures } from "@/lib/products";
@@ -16,8 +18,13 @@ export function ProductTeaser() {
       />
 
       <ul className="mt-10 grid gap-grid nav:grid-cols-3">
-        {ventures.map((venture) => (
-          <li key={venture.id} className="h-full">
+        {ventures.map((venture, index) => (
+          <Reveal
+            as="li"
+            key={venture.id}
+            delay={stagger(index)}
+            className="h-full"
+          >
             <Card
               title={venture.name}
               body={venture.description}
@@ -36,7 +43,7 @@ export function ProductTeaser() {
                 Learn more <span aria-hidden="true">&rarr;</span>
               </Link>
             </Card>
-          </li>
+          </Reveal>
         ))}
       </ul>
     </Section>

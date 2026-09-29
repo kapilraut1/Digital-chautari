@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/Reveal";
+import { stagger } from "@/lib/reveal";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { storyTiles } from "@/lib/company";
@@ -46,9 +48,11 @@ export function AboutStory() {
         </div>
 
         <ul className="grid gap-grid sm:grid-cols-2">
-          {storyTiles.map((tile) => (
-            <li
+          {storyTiles.map((tile, index) => (
+            <Reveal
+              as="li"
               key={tile.label}
+              delay={stagger(index)}
               className={cn(
                 "flex flex-col justify-center rounded-card p-card",
                 tileTones[tile.tone],
@@ -65,7 +69,7 @@ export function AboutStory() {
               >
                 {tile.label}
               </span>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

@@ -1,5 +1,7 @@
 import { Card } from "@/components/Card";
 import { chipTones } from "@/components/IconChip";
+import { Reveal } from "@/components/Reveal";
+import { stagger } from "@/lib/reveal";
 import { Section } from "@/components/Section";
 
 const features = [
@@ -32,7 +34,12 @@ export function FeatureStrip() {
 
       <ul className="grid gap-grid sm:grid-cols-2 lg:grid-cols-4">
         {features.map((feature, index) => (
-          <li key={feature.title} className="h-full">
+          <Reveal
+            as="li"
+            key={feature.title}
+            delay={stagger(index)}
+            className="h-full"
+          >
             <Card
               title={feature.title}
               body={feature.body}
@@ -40,7 +47,7 @@ export function FeatureStrip() {
               iconTone={chipTones[index % chipTones.length]}
               className="h-full"
             />
-          </li>
+          </Reveal>
         ))}
       </ul>
     </Section>

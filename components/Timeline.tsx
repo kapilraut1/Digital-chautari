@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/Reveal";
+import { stagger } from "@/lib/reveal";
 import { cn } from "@/lib/cn";
 import type { Milestone } from "@/lib/company";
 
@@ -17,8 +19,10 @@ export function Timeline({ milestones }: TimelineProps) {
         const onRight = index % 2 === 1;
 
         return (
-          <li
+          <Reveal
+            as="li"
             key={`${milestone.year}-${milestone.title}`}
+            delay={stagger(index)}
             className="relative pb-section pl-10 last:pb-0 lg:grid lg:grid-cols-2 lg:gap-section-tight lg:pb-section"
           >
             <span
@@ -45,7 +49,7 @@ export function Timeline({ milestones }: TimelineProps) {
                 {milestone.body}
               </p>
             </div>
-          </li>
+          </Reveal>
         );
       })}
     </ol>

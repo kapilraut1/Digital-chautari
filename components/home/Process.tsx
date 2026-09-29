@@ -1,6 +1,8 @@
 import { Card } from "@/components/Card";
 import { DarkBanner } from "@/components/DarkBanner";
 import { chipTones } from "@/components/IconChip";
+import { Reveal } from "@/components/Reveal";
+import { stagger } from "@/lib/reveal";
 
 const steps = [
   {
@@ -30,7 +32,12 @@ export function Process() {
     <DarkBanner eyebrow="How we work" title="Our 4-step process">
       <ul className="mt-10 grid gap-grid sm:grid-cols-2 lg:grid-cols-4">
         {steps.map((step, index) => (
-          <li key={step.title} className="h-full">
+          <Reveal
+            as="li"
+            key={step.title}
+            delay={stagger(index)}
+            className="h-full"
+          >
             <Card
               tone="navy"
               title={step.title}
@@ -40,7 +47,7 @@ export function Process() {
               badge={`0${index + 1}`}
               className="h-full"
             />
-          </li>
+          </Reveal>
         ))}
       </ul>
     </DarkBanner>

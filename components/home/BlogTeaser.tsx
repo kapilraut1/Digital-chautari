@@ -1,4 +1,6 @@
 import { BlogCard } from "@/components/BlogCard";
+import { Reveal } from "@/components/Reveal";
+import { stagger } from "@/lib/reveal";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { blogPosts } from "@/lib/posts";
@@ -13,10 +15,15 @@ export function BlogTeaser() {
       />
 
       <ul className="mt-10 grid gap-grid nav:grid-cols-3">
-        {blogPosts.map((post) => (
-          <li key={post.title} className="h-full">
+        {blogPosts.map((post, index) => (
+          <Reveal
+            as="li"
+            key={post.title}
+            delay={stagger(index)}
+            className="h-full"
+          >
             <BlogCard {...post} />
-          </li>
+          </Reveal>
         ))}
       </ul>
     </Section>

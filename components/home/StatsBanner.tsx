@@ -1,4 +1,5 @@
 import { DarkBanner } from "@/components/DarkBanner";
+import { Reveal } from "@/components/Reveal";
 import { StatBar } from "@/components/StatBar";
 
 const impactStats = [
@@ -15,7 +16,9 @@ export function StatsBanner() {
       eyebrow="Our track record"
       title="Results our clients can point to"
     >
-      <StatBar stats={impactStats} tone="navy" />
+      <Reveal>
+        <StatBar stats={impactStats} tone="navy" />
+      </Reveal>
     </DarkBanner>
   );
 }

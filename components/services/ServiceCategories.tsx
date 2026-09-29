@@ -1,5 +1,7 @@
 import { Card } from "@/components/Card";
 import { IconChip, chipTones } from "@/components/IconChip";
+import { Reveal } from "@/components/Reveal";
+import { stagger } from "@/lib/reveal";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { serviceCategories } from "@/lib/services";
@@ -16,8 +18,10 @@ export function ServiceCategories() {
 
       <div className="mt-10 flex flex-col gap-section-tight">
         {serviceCategories.map((category, categoryIndex) => (
-          <article
+          <Reveal
+            as="article"
             key={category.id}
+            delay={stagger(categoryIndex)}
             id={category.id}
             className="grid scroll-mt-28 gap-grid rounded-card border border-line bg-white p-card lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-section-tight"
           >
@@ -50,7 +54,7 @@ export function ServiceCategories() {
                 </li>
               ))}
             </ul>
-          </article>
+          </Reveal>
         ))}
       </div>
     </Section>
