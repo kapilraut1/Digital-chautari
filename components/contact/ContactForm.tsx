@@ -111,7 +111,7 @@ export function ContactForm() {
                 className={cn(
                   "cursor-pointer rounded-pill border px-4 py-2 text-sm font-semibold transition-colors duration-200",
                   selected
-                    ? "border-primary bg-primary text-white"
+                    ? "border-primaryDark bg-primaryDark text-white"
                     : "border-line bg-white text-muted hover:border-primary hover:text-primary",
                 )}
               >

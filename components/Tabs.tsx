@@ -72,7 +72,7 @@ export function Tabs({ items, label, value, onChange, idPrefix }: TabsProps) {
             className={cn(
               "rounded-pill border px-5 py-2.5 text-sm font-semibold transition-colors duration-200",
               selected
-                ? "border-primary bg-primary text-white"
+                ? "border-primaryDark bg-primaryDark text-white"
                 : "border-line bg-white text-muted hover:border-primary hover:text-primary",
             )}
           >

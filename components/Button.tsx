@@ -21,7 +21,7 @@ const base =
   "inline-flex items-center justify-center gap-2 rounded-button px-6 py-[13px] text-sm font-semibold transition-colors duration-200";
 
 const variants: Record<ButtonVariant, string> = {
-  primary: "bg-primary text-white hover:bg-primaryDark",
+  primary: "bg-primaryDark text-white hover:brightness-90",
   ghost:
     "border border-line bg-white text-ink hover:border-primary hover:text-primary",
   light: "bg-white text-ink hover:bg-chip-mint",
