@@ -104,3 +104,62 @@ Structural choices worth recording:
 - **`playwright` is a devDependency** used only by `scripts/audit.mjs`, which
   sweeps all five routes at 1440/1024/760/390px, screenshots each one, and
   records console errors, page errors, failed requests and horizontal overflow.
+
+## Phase 4: Services, Products, About, Contact
+
+As with Home, the spec fixes structure and the important headings; the prose
+around them is mine and is listed here.
+
+- **Services page:** hero lede; service-category rows get a section heading
+  ("Three services, one team") and a lede; the Content Creation and Software
+  Development sub-service grids (spec only lists Digital Marketing's four) with
+  their blurbs; pricing lede, tier summaries and feature checklists, plus the
+  pricing footnote; the "Why work with us" section adds a heading ("Six reasons
+  clients stay"); closing CTA heading.
+- **Products page:** hero lede; the two-column panel shots use the venture data
+  already in `lib/products.ts`, so the descriptions and tags match Home; the
+  spotlight banner gains its supporting paragraph ("Recovery does not happen in
+  the clinic...").
+- **About page:** hero lede; four story paragraphs; the stat tiles map the
+  spec's four facts (2025 Founded, 3 Products, Kathmandu HQ, 7+ Team Members)
+  into short labels; mission/vision copy; four value-card bodies; four
+  trust-card bodies; the seven team cards show job title plus a one-line
+  responsibility with a monogram chip instead of invented names (there is no
+  naming data in the spec); roadmap milestones get one supporting sentence
+  each.
+- **Contact page:** hero lede; department blurbs; fake-but-plausible contact
+  details (a `@digitalchautari.com` address family, a `+977 984 123 4567`
+  phone number and Sunday–Friday office hours, per Nepal's working week); the
+  response-time list is verbatim from the spec. The office street line
+  ("Jhamsikhel, Lalitpur") is invented for a map card that has no map data.
+
+Structural choices worth recording:
+
+- **`Tabs` is a controlled, generic tablist** (props: `items`, `value`,
+  `onChange`, `idPrefix`) with WAI-ARIA roles, roving `tabindex` and arrow /
+  Home / End keyboard selection. A tiny client component (`ProductSwitcher`)
+  holds the active state while the three venture panels stay server-rendered
+  and are passed in as already-rendered nodes — so the page's data work does
+  not ship as JavaScript.
+- **Mock UI previews are decorative.** Each venture panel pairs its copy with a
+  CSS-built mock screen (marketing dashboard, studio board, physio plan) marked
+  `aria-hidden="true"`; the venture copy beside it is the accessible content.
+  The balance ring in the Physio render uses an SVG circle (token colours via
+  `stroke="currentColor"`), not an image.
+- **`Card` gained a `heading` prop** (`h2` | `h3` | `h4`) so nested grids
+  (category `h3` → sub-service `h4`) keep a correct heading hierarchy.
+- **`Timeline`** is the alternating left/right card on the About page: a
+  centred line (offsets left on small screens), leaf-coloured dots and gold
+  year pills, all from palette tokens.
+- **The contact form is front-end only.** It validates with native `required`
+  fields, turns the Project Type picker into real radio inputs styled as pills
+  (keeps native keyboard and screen-reader behaviour), and swaps in a success
+  state on submit. There is no POST target in this assignment, so no mail is
+  actually sent; flagged here rather than pretending otherwise.
+- **The map card is a placeholder**: a `bg-map-grid` token (a faint grid drawn
+  from the ink token) plus decorative blocks and a pin, no map service or
+  image request. It carries the office address in real text next to it.
+- **Footer service links now point at existing anchors.** The Home teaser
+  advertises a "Branding & Design" service that the Services page (per the
+  spec) does not include; the footer's fifth link is now "Industries" instead
+  of a dead `#branding-design` anchor. This was a `fix:` commit.
