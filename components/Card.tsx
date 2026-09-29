@@ -11,6 +11,7 @@ interface CardProps {
   badge?: string;
   tone?: "white" | "navy";
   as?: "article" | "li" | "div";
+  heading?: "h2" | "h3" | "h4";
   className?: string;
   children?: ReactNode;
 }
@@ -28,6 +29,7 @@ export function Card({
   badge,
   tone = "white",
   as: Tag = "article",
+  heading: Heading = "h3",
   className,
   children,
 }: CardProps) {
@@ -55,14 +57,14 @@ export function Card({
         </div>
       ) : null}
 
-      <h3
+      <Heading
         className={cn(
           "font-display text-lg font-bold tracking-tight",
           tone === "navy" ? "text-white" : "text-ink",
         )}
       >
         {title}
-      </h3>
+      </Heading>
 
       {body ? (
         <p
