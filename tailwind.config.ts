@@ -50,6 +50,9 @@ const config: Config = {
         content: "1120px",
         lede: "700px",
       },
+      padding: {
+        card: "22px",
+      },
       screens: {
         nav: "760px",
       },
