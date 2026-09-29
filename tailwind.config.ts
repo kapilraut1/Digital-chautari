@@ -61,6 +61,8 @@ const config: Config = {
         "hero-surface":
           "linear-gradient(180deg, #E7F5EA 0%, #FBFBF9 55%), radial-gradient(55% 55% at 88% 4%, rgba(15,148,136,0.16) 0%, rgba(224,169,48,0.10) 45%, rgba(251,251,249,0) 72%)",
         "cta-panel": "linear-gradient(120deg, #0F9488 0%, #1D4ED8 100%)",
+        "cta-sheen":
+          "radial-gradient(60% 60% at 85% 10%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%)",
         "paper-fade": "linear-gradient(180deg, #101826 0%, #0B1220 100%)",
       },
     },
