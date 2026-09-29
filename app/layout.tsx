@@ -21,7 +21,10 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Digital Chautari | Creative Technology Company in Kathmandu",
+  title: {
+    default: "Digital Chautari | Creative Technology Company in Kathmandu",
+    template: "%s | Digital Chautari",
+  },
   description:
     "Digital Chautari is a Kathmandu-based creative technology company offering digital marketing, content creation, and health-tech software.",
 };
