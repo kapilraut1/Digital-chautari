@@ -163,3 +163,36 @@ Structural choices worth recording:
   advertises a "Branding & Design" service that the Services page (per the
   spec) does not include; the footer's fifth link is now "Industries" instead
   of a dead `#branding-design` anchor. This was a `fix:` commit.
+
+## Phase 5: reveal, a11y and Lighthouse
+
+- **Scroll reveal is one `Reveal` component.** It observes its own element with
+  `IntersectionObserver` (threshold 0.12, small negative root margin), fades and
+  lifts it in over 500ms, and clears its transition delay once visible so
+  subsequent hover animations are not delayed. Grid items pass
+  `delay={stagger(index)}` (70ms per item, capped at 280ms). Every one of its
+  styles is `motion-safe:` (`prefers-reduced-motion: no-preference`) and the
+  effect also bails out when `reduce` is active, so the page renders fully
+  visible and static for reduced-motion users.
+- **`stagger` lives in `lib/reveal.ts`**, a plain server-safe module, because
+  the component file is `"use client"` and scheduling helpers cannot be called
+  from server components.
+- **Contrast fixes from the a11y pass.** White text on the primary teal
+  (`#0F9488`) measures 3.74:1 — fine for large display heads, not for 14px
+  buttons. So solid fills that carry small text (primary buttons, the selected
+  product tab, the selected project-type pill, the skip link, the story
+  tiles) moved to `primaryDark` (`#0B6F66`, 6.0:1 white). Emoji + `text-primary`
+  links on white (Learn more / Read more / department emails) are now
+  `text-primaryDark` and underline on hover; the step badges are solid gold
+  with navy text instead of translucent gold, and the logo mark gradient runs
+  `primaryDark → navy`. Where a chip tint carries a check mark, `primaryDark`
+  is used (all chip tints measure ≥ 5.1:1 against it).
+- **Lighthouse 100/100/100 on every page.** After the contrast fixes the
+  accessibility, best-practices and SEO categories score 100 across all five
+  routes; performance scores 93–98 (mobile-throttled), with products lowest
+  due to tab hydration TBT and self-hosted font render-blocking — no structural
+  win worth trading for product-breaking motion or CDNs.
+- **`scripts/parse-lighthouse.mjs`** reads the per-page JSON reports and prints
+  the category scores plus any failing accessibility/best-practices audits, so
+  the audit is repeatable without eyeballing 700KB of JSON. Both `.audit` and
+  `.lighthouse` outputs are gitignored.
