@@ -64,6 +64,8 @@ const config: Config = {
         "cta-sheen":
           "radial-gradient(60% 60% at 85% 10%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%)",
         "paper-fade": "linear-gradient(180deg, #101826 0%, #0B1220 100%)",
+        "map-grid":
+          "linear-gradient(rgba(16,24,38,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(16,24,38,0.08) 1px, transparent 1px)",
       },
     },
   },
