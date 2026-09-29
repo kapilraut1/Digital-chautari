@@ -54,7 +54,7 @@ export function Header() {
                     className={cn(
                       "inline-block whitespace-nowrap rounded-button px-2 py-2 text-[13px] font-medium transition-colors duration-200 lg:px-3.5 lg:text-sm",
                       active
-                        ? "text-primary"
+                        ? "text-primaryDark"
                         : "text-muted hover:bg-chip-teal hover:text-ink",
                     )}
                   >
@@ -113,7 +113,9 @@ export function Header() {
                     aria-current={active ? "page" : undefined}
                     className={cn(
                       "block rounded-button px-3 py-2.5 text-sm font-medium",
-                      active ? "bg-chip-teal text-primary" : "text-ink",
+                      active
+                        ? "bg-chip-teal font-semibold text-primaryDark"
+                        : "text-ink",
                     )}
                   >
                     {link.label}

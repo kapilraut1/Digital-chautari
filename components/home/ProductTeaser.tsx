@@ -38,7 +38,7 @@ export function ProductTeaser() {
 
               <Link
                 href="/products"
-                className="mt-5 inline-flex text-sm font-semibold text-primary transition-colors duration-200 hover:text-primaryDark"
+                className="mt-5 inline-flex text-sm font-semibold text-primaryDark underline-offset-4 transition-colors duration-200 hover:underline"
               >
                 Learn more <span aria-hidden="true">&rarr;</span>
               </Link>

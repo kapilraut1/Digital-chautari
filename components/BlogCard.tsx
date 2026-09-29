@@ -65,7 +65,7 @@ export function BlogCard({
 
         <a
           href={href}
-          className="mt-5 inline-flex text-sm font-semibold text-primary transition-colors duration-200 hover:text-primaryDark"
+          className="mt-5 inline-flex text-sm font-semibold text-primaryDark underline-offset-4 transition-colors duration-200 hover:underline"
         >
           Read more <span aria-hidden="true">&rarr;</span>
         </a>

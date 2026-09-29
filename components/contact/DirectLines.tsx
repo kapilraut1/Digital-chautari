@@ -31,7 +31,7 @@ export function DirectLines() {
             >
               <a
                 href={`mailto:${department.email}`}
-                className="mt-4 block break-words text-sm font-semibold text-primary underline-offset-4 hover:underline"
+                className="mt-4 block break-words text-sm font-semibold text-primaryDark underline-offset-4 hover:underline"
               >
                 {department.email}
               </a>
