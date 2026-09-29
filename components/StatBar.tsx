@@ -4,7 +4,7 @@ import { IconChip, type ChipTone } from "@/components/IconChip";
 import { cn } from "@/lib/cn";
 
 interface StatBarProps {
-  stats: StatBarItem[];
+  stats: readonly StatBarItem[];
   tone?: "white" | "navy";
   className?: string;
 }
