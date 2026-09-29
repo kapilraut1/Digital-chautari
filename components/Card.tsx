@@ -8,6 +8,7 @@ interface CardProps {
   body?: string;
   icon?: ReactNode;
   iconTone?: ChipTone;
+  badge?: string;
   tone?: "white" | "navy";
   as?: "article" | "li" | "div";
   className?: string;
@@ -24,6 +25,7 @@ export function Card({
   body,
   icon,
   iconTone = "mint",
+  badge,
   tone = "white",
   as: Tag = "article",
   className,
@@ -37,10 +39,20 @@ export function Card({
         className,
       )}
     >
-      {icon ? (
-        <span className="mb-5 transition-transform duration-200 motion-safe:group-hover:scale-105">
-          <IconChip tone={iconTone}>{icon}</IconChip>
-        </span>
+      {icon || badge ? (
+        <div className="mb-5 flex items-start justify-between gap-3">
+          {icon ? (
+            <span className="transition-transform duration-200 motion-safe:group-hover:scale-105">
+              <IconChip tone={iconTone}>{icon}</IconChip>
+            </span>
+          ) : null}
+
+          {badge ? (
+            <span className="rounded-badge bg-gold/15 px-3 py-1 font-display text-xs font-bold uppercase tracking-widest text-gold">
+              {badge}
+            </span>
+          ) : null}
+        </div>
       ) : null}
 
       <h3
