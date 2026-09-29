@@ -50,11 +50,13 @@ const config: Config = {
         content: "1120px",
         lede: "700px",
       },
+      screens: {
+        nav: "760px",
+      },
       backgroundImage: {
         headline: "linear-gradient(90deg, #0F9488, #E0A930, #7FAE3A)",
-        "hero-wash": "linear-gradient(180deg, #E7F5EA 0%, #FBFBF9 55%)",
-        "hero-glow":
-          "radial-gradient(55% 55% at 88% 4%, rgba(15,148,136,0.16) 0%, rgba(224,169,48,0.10) 45%, rgba(251,251,249,0) 72%)",
+        "hero-surface":
+          "linear-gradient(180deg, #E7F5EA 0%, #FBFBF9 55%), radial-gradient(55% 55% at 88% 4%, rgba(15,148,136,0.16) 0%, rgba(224,169,48,0.10) 45%, rgba(251,251,249,0) 72%)",
         "cta-panel": "linear-gradient(120deg, #0F9488 0%, #1D4ED8 100%)",
         "paper-fade": "linear-gradient(180deg, #101826 0%, #0B1220 100%)",
       },
