@@ -50,7 +50,7 @@ export function Card({
           ) : null}
 
           {badge ? (
-            <span className="rounded-badge bg-gold/15 px-3 py-1 font-display text-xs font-bold uppercase tracking-widest text-gold">
+            <span className="rounded-badge bg-gold px-3 py-1 font-display text-xs font-bold uppercase tracking-widest text-navy">
               {badge}
             </span>
           ) : null}

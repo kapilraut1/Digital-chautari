@@ -19,7 +19,7 @@ export function Logo({
       className={cn("flex shrink-0 items-center gap-3", className)}
       aria-label="Digital Chautari, home"
     >
-      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-card bg-gradient-to-br from-primary to-primaryDark font-display text-sm font-extrabold tracking-tight text-white">
+      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-card bg-gradient-to-br from-primaryDark to-navy font-display text-sm font-extrabold tracking-tight text-white">
         DC
       </span>
       <span className="flex flex-col leading-tight">

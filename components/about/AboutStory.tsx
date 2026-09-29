@@ -6,7 +6,7 @@ import { storyTiles } from "@/lib/company";
 import { cn } from "@/lib/cn";
 
 const tileTones: Record<string, string> = {
-  teal: "bg-primary text-white",
+  teal: "bg-primaryDark text-white",
   navy: "bg-navy text-white",
   white: "border border-line bg-white text-ink",
   gold: "bg-gold text-navy",
@@ -64,7 +64,11 @@ export function AboutStory() {
               <span
                 className={cn(
                   "mt-2 text-sm font-medium",
-                  tile.tone === "white" ? "text-muted" : "text-white/80",
+                  tile.tone === "gold"
+                    ? "text-navy"
+                    : tile.tone === "white"
+                      ? "text-muted"
+                      : "text-white",
                 )}
               >
                 {tile.label}

@@ -88,14 +88,7 @@ export function PricingCard({
         {features.map((feature) => (
           <li key={feature} className="flex items-start gap-3 text-sm">
             <IconChip tone={featured ? "mint" : "teal"} size="sm">
-              <span
-                className={cn(
-                  "text-xs font-bold",
-                  featured ? "text-primaryDark" : "text-primary",
-                )}
-              >
-                ✓
-              </span>
+              <span className="text-xs font-bold text-primaryDark">✓</span>
             </IconChip>
             <span className={featured ? "text-white/85" : "text-ink"}>
               {feature}
