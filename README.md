@@ -1,6 +1,6 @@
 # Digital Chautari — Marketing Website
 
-- **Live:** <https://digital-chautari.vercel.app>
+- **Live:** pending — after `npx vercel login`, run `npx vercel --prod --yes`
 - **Repo:** <https://github.com/kapilraut1/Digital-chautari>
 
 I built this five-page marketing site (Home, Services, Products, About, Contact) for Digital Chautari, a creative technology studio in Kathmandu. It follows the brand spec in `docs/brand-spec.md`, with every design token in `tailwind.config.ts`. Copy that isn't in the spec is flagged in `docs/decisions.md`.
